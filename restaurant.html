@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Customer Name
+<input type="text" id="customername" placeholder="Please enter your name">
+<br><br>
+
+<input type="radio" name="customertype" value="normalcustomer">
+Normal Customer
+
+<input type="radio" name="customertype" value="premiumcustomer">
+Premium Customer
+
+<br><br><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FoodTrain Restaurant</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.55)
+                ),
+                url("restaurant.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 420px;
+            padding: 40px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 35px;
+        }
+
+        .subtitle {
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        #customername {
+            width: 100%;
+            padding: 13px;
+
+            margin-top: 10px;
+
+            border: 1px solid #ccc;
+            border-radius: 8px;
+
+            font-size: 16px;
+        }
+
+        .customer-type {
+            margin-top: 25px;
+        }
+
+        .customer-type label {
+            margin-right: 20px;
+            font-weight: normal;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 30px;
+
+            padding: 13px;
+
+            border: none;
+            border-radius: 8px;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🍽️ FoodTrain</h1>
+
+        <p class="subtitle">
+            Welcome! Please enter your details
+        </p>
+
+        <label for="customername">
+            Customer Name
+        </label>
+
+        <input
+            type="text"
+            id="customername"
+            placeholder="Please enter your name"
+        >
+
+        <div class="customer-type">
+
+            <p><b>Select Customer Type</b></p>
+
+            <input
+                type="radio"
+                name="customertype"
+                value="normalcustomer"
+            >
+            <label>Normal Customer</label>
+
+            <input
+                type="radio"
+                name="customertype"
+                value="premiumcustomer"
+            >
+            <label>Premium Customer</label>
+
+        </div>
+
+        <button onclick="typesofcustomers()">
+            Continue to Menu →
+        </button>
+
+    </div>
+
+    <script src="restaurant.js"></script>
+
+</body>
+</html>
+
+<button onclick="typesofcustomers()">Submit</button>
+
+<script src="restaurant.js"></script>
+</body>
+</html>

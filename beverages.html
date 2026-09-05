@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Beverages</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+                ),
+                url("beverages.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 600px;
+            padding: 40px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 25px;
+            padding: 15px;
+
+            border-radius: 10px;
+
+            background: #f5f5f5;
+
+            transition: 0.3s;
+        }
+
+        .item:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .item label {
+            flex: 1;
+            font-weight: bold;
+        }
+
+        select {
+            padding: 8px;
+
+            border-radius: 6px;
+
+            border: 1px solid #ccc;
+
+            cursor: pointer;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        button {
+            padding: 12px 25px;
+
+            margin: 5px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #beverageresult {
+            display: block;
+
+            text-align: center;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>🥤 Explore Your Favourite Beverages</h2>
+
+
+        <div class="item">
+
+            <input type="checkbox" id="coke">
+
+            <label>
+                Coke - ₹50
+            </label>
+
+            <select id="cokequantity">
+
+                <option value=""></option>
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="item">
+
+            <input type="checkbox" id="pepsi">
+
+            <label>
+                Pepsi - ₹50
+            </label>
+
+            <select id="pepsiquantity">
+
+                <option value=""></option>
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="item">
+
+            <input type="checkbox" id="freshlime">
+
+            <label>
+                Fresh Lime Soda - ₹80
+            </label>
+
+            <select id="freshlimequantity">
+
+                <option value=""></option>
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <button onclick="calculateBeverage()">
+                Calculate
+            </button>
+
+        </div>
+
+
+        <label id="beverageresult"></label>
+
+
+        <div class="buttons">
+
+            <button onclick="window.location.href='icecreams.html'">
+                Next →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="beverages.js"></script>
+
+</body>
+</html>

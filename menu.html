@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FoodTrain Menu</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.55)
+                ),
+                url("menu.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 600px;
+            padding: 45px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 36px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 35px;
+            font-size: 18px;
+        }
+
+        .menu-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        button {
+            padding: 20px 10px;
+
+            border: none;
+            border-radius: 15px;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-5px) scale(1.03);
+
+            box-shadow:
+                0 8px 18px rgba(0, 0, 0, 0.25);
+        }
+
+        #buttonone {
+            width: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🍽️ FoodTrain Menu</h1>
+
+        <p class="subtitle">
+            Choose your favourite category
+        </p>
+
+        <div class="menu-buttons">
+
+            <button id="buttonone" onclick="maincourse()">
+                🍛 Main Course
+            </button>
+
+            <button id="buttonone" onclick="starters()">
+                🍗 Starters
+            </button>
+
+            <button id="buttonone" onclick="beverages()">
+                🥤 Beverages
+            </button>
+
+            <button id="buttonone" onclick="icecreams()">
+                🍨 Ice Creams
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="menu.js"></script>
+
+</body>
+</html>
