@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Beverages</title>
+    <title>Beverages | FoodTrain</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
 
@@ -16,198 +21,622 @@
             margin: 0;
             min-height: 100vh;
 
-            font-family: Arial, sans-serif;
+            font-family: "Montserrat", sans-serif;
 
-            background-image:
-                linear-gradient(
-                    rgba(0, 0, 0, 0.5),
-                    rgba(0, 0, 0, 0.5)
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(216, 174, 92, 0.22),
+                    transparent 30%
                 ),
-                url("beverages.jpg");
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(91, 45, 104, 0.32),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #210d18,
+                    #3b1327,
+                    #180b20
+                );
 
-            background-size: cover;
-            background-position: center;
+            color: #fff;
 
             display: flex;
             justify-content: center;
             align-items: center;
+
+            padding: 40px 20px;
+
+            overflow-x: hidden;
         }
+
+
+        /* Decorative background */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            width: 300px;
+            height: 300px;
+
+            border: 1px solid rgba(216, 174, 92, 0.25);
+
+            border-radius: 50%;
+
+            top: -120px;
+            left: -100px;
+
+            animation: rotate 15s linear infinite;
+        }
+
+
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            width: 250px;
+            height: 250px;
+
+            border: 1px solid rgba(216, 174, 92, 0.20);
+
+            border-radius: 50%;
+
+            bottom: -100px;
+            right: -80px;
+
+            animation: rotate 18s linear infinite reverse;
+        }
+
+
+        @keyframes rotate {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        /* Main container */
 
         .container {
-            width: 600px;
-            padding: 40px;
+            width: 720px;
+            max-width: 100%;
 
-            background: rgba(255, 255, 255, 0.95);
+            padding: 45px;
 
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.09);
+
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            border-radius: 28px;
+
+            backdrop-filter: blur(18px);
 
             box-shadow:
-                0 10px 30px rgba(0, 0, 0, 0.4);
+                0 25px 70px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+            position: relative;
+
+            z-index: 2;
+
+            animation: appear 0.8s ease;
         }
 
-        h2 {
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* Heading */
+
+        .heading {
             text-align: center;
+
             margin-bottom: 35px;
         }
 
+
+        .heading small {
+            color: #d8ae5c;
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            font-weight: 600;
+        }
+
+
+        h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 48px;
+
+            margin: 8px 0;
+
+            color: #fff4d8;
+
+            font-weight: 700;
+        }
+
+
+        .subtitle {
+            margin: 0;
+
+            color: rgba(255, 255, 255, 0.68);
+
+            font-size: 14px;
+        }
+
+
+        /* Food items */
+
         .item {
             display: flex;
-            align-items: center;
-            gap: 10px;
 
-            margin-bottom: 25px;
-            padding: 15px;
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 18px;
+
+            padding: 14px;
+
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.10);
+
+            transition: 0.35s ease;
+        }
+
+
+        .item:hover {
+            transform: translateY(-4px);
+
+            background: rgba(255, 255, 255, 0.13);
+
+            border-color: rgba(216, 174, 92, 0.55);
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.25),
+                0 0 20px rgba(216, 174, 92, 0.08);
+        }
+
+
+        /* Beverage images */
+
+        .food-image {
+            width: 80px;
+            height: 80px;
+
+            border-radius: 15px;
+
+            object-fit: cover;
+
+            flex-shrink: 0;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.35);
+
+            transition: 0.4s ease;
+        }
+
+
+        .item:hover .food-image {
+            transform: scale(1.06);
+        }
+
+
+        /* Checkbox */
+
+        .item input[type="checkbox"] {
+            width: 19px;
+            height: 19px;
+
+            accent-color: #d8ae5c;
+
+            cursor: pointer;
+
+            flex-shrink: 0;
+        }
+
+
+        /* Food information */
+
+        .food-info {
+            flex: 1;
+        }
+
+
+        .food-name {
+            display: block;
+
+            color: #fff;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            margin-bottom: 5px;
+        }
+
+
+        .price {
+            color: #d8ae5c;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        /* Quantity */
+
+        .quantity-box {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 5px;
+        }
+
+
+        .quantity-box span {
+            color: rgba(255, 255, 255, 0.55);
+
+            font-size: 9px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        select {
+            padding: 9px 12px;
+
+            min-width: 60px;
 
             border-radius: 10px;
 
-            background: #f5f5f5;
+            border: 1px solid rgba(216, 174, 92, 0.45);
 
-            transition: 0.3s;
-        }
+            background: #291321;
 
-        .item:hover {
-            transform: translateY(-3px);
+            color: #fff;
 
-            box-shadow:
-                0 5px 15px rgba(0, 0, 0, 0.15);
-        }
+            font-family: "Montserrat", sans-serif;
 
-        .item label {
-            flex: 1;
-            font-weight: bold;
-        }
-
-        select {
-            padding: 8px;
-
-            border-radius: 6px;
-
-            border: 1px solid #ccc;
+            outline: none;
 
             cursor: pointer;
         }
+
+
+        /* Buttons */
 
         .buttons {
             text-align: center;
-            margin-top: 25px;
+
+            margin-top: 28px;
         }
 
-        button {
-            padding: 12px 25px;
 
-            margin: 5px;
+        button {
+            padding: 13px 30px;
 
             border: none;
 
-            border-radius: 8px;
+            border-radius: 30px;
 
-            font-size: 16px;
-            font-weight: bold;
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            letter-spacing: 0.5px;
 
             cursor: pointer;
 
-            transition: 0.3s;
+            color: #24101a;
+
+            background: linear-gradient(
+                135deg,
+                #e7c777,
+                #b98535
+            );
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.25);
+
+            transition: 0.3s ease;
         }
 
+
         button:hover {
-            transform: scale(1.05);
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 28px rgba(216, 174, 92, 0.28);
         }
+
+
+        /* Result */
 
         #beverageresult {
             display: block;
 
             text-align: center;
 
-            font-size: 20px;
+            margin-top: 25px;
 
-            font-weight: bold;
+            min-height: 25px;
 
-            margin-top: 20px;
+            color: #f4d78b;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* Next button */
+
+        .next-button {
+            background: transparent;
+
+            color: #f3d58b;
+
+            border: 1px solid rgba(216, 174, 92, 0.55);
+
+            box-shadow: none;
+        }
+
+
+        .next-button:hover {
+            background: rgba(216, 174, 92, 0.12);
+
+            box-shadow:
+                0 8px 20px rgba(216, 174, 92, 0.12);
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 28px 20px;
+            }
+
+            h2 {
+                font-size: 38px;
+            }
+
+            .item {
+                gap: 10px;
+            }
+
+            .food-image {
+                width: 65px;
+                height: 65px;
+            }
+
+            .food-name {
+                font-size: 14px;
+            }
+
+            select {
+                min-width: 55px;
+            }
+
         }
 
     </style>
 </head>
 
+
 <body>
 
     <div class="container">
 
-        <h2>🥤 Explore Your Favourite Beverages</h2>
+        <div class="heading">
 
+            <small>FoodTrain • Refreshing Collection</small>
 
-        <div class="item">
+            <h2>Explore Your Favourite</h2>
 
-            <input type="checkbox" id="coke">
-
-            <label>
-                Coke - ₹50
-            </label>
-
-            <select id="cokequantity">
-
-                <option value=""></option>
-
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-
-            </select>
+            <p class="subtitle">
+                Beverages
+            </p>
 
         </div>
 
 
+        <!-- Coke -->
+
         <div class="item">
 
-            <input type="checkbox" id="pepsi">
+            <img
+                class="food-image"
+                src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=500&q=85"
+                alt="Coke"
+            >
 
-            <label>
-                Pepsi - ₹50
-            </label>
+            <input
+                type="checkbox"
+                id="coke"
+            >
 
-            <select id="pepsiquantity">
+            <div class="food-info">
 
-                <option value=""></option>
+                <span class="food-name">
+                    Coke
+                </span>
 
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+                <span class="price">
+                    ₹50
+                </span>
 
-            </select>
+            </div>
+
+
+            <div class="quantity-box">
+
+                <span>Qty</span>
+
+                <select id="cokequantity">
+
+                    <option value=""></option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                </select>
+
+            </div>
 
         </div>
 
 
+        <!-- Pepsi -->
+
         <div class="item">
 
-            <input type="checkbox" id="freshlime">
+            <img
+                class="food-image"
+                src="https://images.unsplash.com/photo-1629203849820-fdd70d49c38e?auto=format&fit=crop&w=500&q=85"
+                alt="Pepsi"
+            >
 
-            <label>
-                Fresh Lime Soda - ₹80
-            </label>
+            <input
+                type="checkbox"
+                id="pepsi"
+            >
 
-            <select id="freshlimequantity">
+            <div class="food-info">
 
-                <option value=""></option>
+                <span class="food-name">
+                    Pepsi
+                </span>
 
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+                <span class="price">
+                    ₹50
+                </span>
 
-            </select>
+            </div>
+
+
+            <div class="quantity-box">
+
+                <span>Qty</span>
+
+                <select id="pepsiquantity">
+
+                    <option value=""></option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                </select>
+
+            </div>
 
         </div>
 
+
+        <!-- Fresh Lime Soda -->
+
+        <div class="item">
+
+            <img
+                class="food-image"
+                src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=500&q=85"
+                alt="Fresh Lime Soda"
+            >
+
+            <input
+                type="checkbox"
+                id="freshlime"
+            >
+
+            <div class="food-info">
+
+                <span class="food-name">
+                    Fresh Lime Soda
+                </span>
+
+                <span class="price">
+                    ₹80
+                </span>
+
+            </div>
+
+
+            <div class="quantity-box">
+
+                <span>Qty</span>
+
+                <select id="freshlimequantity">
+
+                    <option value=""></option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- Calculate -->
 
         <div class="buttons">
 
             <button onclick="calculateBeverage()">
-                Calculate
+                Calculate Total
             </button>
 
         </div>
@@ -216,10 +645,15 @@
         <label id="beverageresult"></label>
 
 
+        <!-- Next -->
+
         <div class="buttons">
 
-            <button onclick="window.location.href='icecreams.html'">
-                Next →
+            <button
+                class="next-button"
+                onclick="window.location.href='icecreams.html'"
+            >
+                Next — Ice Creams
             </button>
 
         </div>

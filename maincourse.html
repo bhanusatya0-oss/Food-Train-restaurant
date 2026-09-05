@@ -3,67 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Course</title>
-</head>
-<body>
 
-    <h2>Explore Your Favourite Main Course</h2>
+    <title>Main Course | FoodTrain</title>
 
-    <input type="checkbox" id="chickenbiryani">
-    <label>Chicken Biryani - ₹250</label>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <select id="chickenquantity">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
-
-    <br><br>
-
-    <input type="checkbox" id="kajupanner">
-    <label>Kaju Panner Biryani - ₹300</label>
-
-    <select id="kajupannerquantity">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
-
-    <br><br>
-
-    <input type="checkbox" id="eggmasala">
-    <label>Egg Masala Biryani - ₹200</label>
-
-    <select id="eggquantity">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
-
-    <br><br>
-
-    <button onclick="calculateMainCourse()">Calculate</button>
-
-    <br><br>
-
-    <label id="maincourseresult"></label>
-
-    <br><br>
-
-    <button onclick="window.location.href='starters.html'">
-        Next<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Main Course</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
 
@@ -74,186 +20,595 @@
         body {
             margin: 0;
             min-height: 100vh;
-            font-family: Arial, sans-serif;
 
-            background-image:
-                linear-gradient(
-                    rgba(0, 0, 0, 0.5),
-                    rgba(0, 0, 0, 0.5)
-                ),
-                url("maincourse.jpg");
+            font-family: "Montserrat", sans-serif;
 
-            background-size: cover;
-            background-position: center;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(187, 122, 43, 0.25), transparent 30%),
+                radial-gradient(circle at 85% 80%, rgba(91, 45, 104, 0.30), transparent 35%),
+                linear-gradient(135deg, #210d18, #3b1327, #180b20);
+
+            color: #fff;
 
             display: flex;
             justify-content: center;
             align-items: center;
+
+            padding: 40px 20px;
+
+            overflow-x: hidden;
         }
+
+
+        /* Decorative background */
+
+        body::before {
+            content: "";
+            position: fixed;
+
+            width: 300px;
+            height: 300px;
+
+            border: 1px solid rgba(216, 174, 92, 0.25);
+            border-radius: 50%;
+
+            top: -120px;
+            left: -100px;
+
+            animation: rotate 15s linear infinite;
+        }
+
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            width: 250px;
+            height: 250px;
+
+            border: 1px solid rgba(216, 174, 92, 0.20);
+            border-radius: 50%;
+
+            bottom: -100px;
+            right: -80px;
+
+            animation: rotate 18s linear infinite reverse;
+        }
+
+
+        @keyframes rotate {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        /* Main container */
 
         .container {
-            width: 600px;
-            padding: 40px;
+            width: 720px;
+            max-width: 100%;
 
-            background: rgba(255, 255, 255, 0.95);
+            padding: 45px;
 
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.09);
 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            border-radius: 28px;
+
+            backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+            position: relative;
+            z-index: 2;
+
+            animation: appear 0.8s ease;
         }
 
-        h2 {
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* Heading */
+
+        .heading {
             text-align: center;
             margin-bottom: 35px;
         }
 
+        .heading small {
+            color: #d8ae5c;
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            font-weight: 600;
+        }
+
+        h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 48px;
+
+            margin: 8px 0;
+
+            color: #fff4d8;
+
+            font-weight: 700;
+        }
+
+        .subtitle {
+            margin: 0;
+
+            color: rgba(255, 255, 255, 0.68);
+
+            font-size: 14px;
+        }
+
+
+        /* Food items */
+
         .item {
             display: flex;
+
             align-items: center;
-            gap: 10px;
 
-            margin-bottom: 25px;
-            padding: 15px;
+            gap: 15px;
 
-            border-radius: 10px;
-            background: #f5f5f5;
+            margin-bottom: 18px;
 
-            transition: 0.3s;
+            padding: 14px;
+
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.10);
+
+            transition: 0.35s ease;
         }
+
 
         .item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+
+            background: rgba(255, 255, 255, 0.13);
+
+            border-color: rgba(216, 174, 92, 0.55);
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.25),
+                0 0 20px rgba(216, 174, 92, 0.08);
         }
 
-        .item label {
-            flex: 1;
-            font-weight: bold;
+
+        /* Food image */
+
+        .food-image {
+            width: 80px;
+            height: 80px;
+
+            border-radius: 15px;
+
+            object-fit: cover;
+
+            flex-shrink: 0;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.35);
+
+            transition: 0.4s ease;
         }
 
-        select {
-            padding: 8px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
+
+        .item:hover .food-image {
+            transform: scale(1.06);
         }
 
-        .buttons {
-            text-align: center;
-            margin-top: 25px;
-        }
 
-        button {
-            padding: 12px 25px;
-            margin: 5px;
+        /* Checkbox */
 
-            border: none;
-            border-radius: 8px;
+        .item input[type="checkbox"] {
+            width: 19px;
+            height: 19px;
 
-            font-size: 16px;
-            font-weight: bold;
+            accent-color: #d8ae5c;
 
             cursor: pointer;
 
-            transition: 0.3s;
+            flex-shrink: 0;
         }
 
-        button:hover {
-            transform: scale(1.05);
+
+        /* Food information */
+
+        .food-info {
+            flex: 1;
         }
+
+        .food-name {
+            display: block;
+
+            color: #fff;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            margin-bottom: 5px;
+        }
+
+        .price {
+            color: #d8ae5c;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        /* Quantity */
+
+        .quantity-box {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 5px;
+        }
+
+        .quantity-box span {
+            color: rgba(255, 255, 255, 0.55);
+
+            font-size: 9px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+        select {
+            padding: 9px 12px;
+
+            min-width: 60px;
+
+            border-radius: 10px;
+
+            border: 1px solid rgba(216, 174, 92, 0.45);
+
+            background: #291321;
+
+            color: #fff;
+
+            font-family: "Montserrat", sans-serif;
+
+            outline: none;
+
+            cursor: pointer;
+        }
+
+
+        /* Buttons */
+
+        .buttons {
+            text-align: center;
+
+            margin-top: 28px;
+        }
+
+        button {
+            padding: 13px 30px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            letter-spacing: 0.5px;
+
+            cursor: pointer;
+
+            color: #24101a;
+
+            background: linear-gradient(
+                135deg,
+                #e7c777,
+                #b98535
+            );
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.25);
+
+            transition: 0.3s ease;
+        }
+
+
+        button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 28px rgba(216, 174, 92, 0.28);
+        }
+
+
+        /* Result */
 
         #maincourseresult {
             display: block;
+
             text-align: center;
 
-            font-size: 20px;
-            font-weight: bold;
+            margin-top: 25px;
 
-            margin-top: 20px;
+            min-height: 25px;
+
+            color: #f4d78b;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* Next button */
+
+        .next-button {
+            background: transparent;
+
+            color: #f3d58b;
+
+            border: 1px solid rgba(216, 174, 92, 0.55);
+
+            box-shadow: none;
+        }
+
+        .next-button:hover {
+            background: rgba(216, 174, 92, 0.12);
+
+            box-shadow:
+                0 8px 20px rgba(216, 174, 92, 0.12);
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 28px 20px;
+            }
+
+            h2 {
+                font-size: 38px;
+            }
+
+            .item {
+                gap: 10px;
+            }
+
+            .food-image {
+                width: 65px;
+                height: 65px;
+            }
+
+            .food-name {
+                font-size: 14px;
+            }
+
+            select {
+                min-width: 55px;
+            }
+
         }
 
     </style>
 </head>
 
+
 <body>
 
     <div class="container">
 
-        <h2>🍛 Explore Your Favourite Main Course</h2>
+        <div class="heading">
 
+            <small>FoodTrain • Signature Selection</small>
 
-        <div class="item">
+            <h2>Explore Your Favourite</h2>
 
-            <input type="checkbox" id="chickenbiryani">
-
-            <label>
-                Chicken Biryani - ₹250
-            </label>
-
-            <select id="chickenquantity">
-
-                <option value=""></option>
-
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-
-            </select>
+            <p class="subtitle">
+                Main Course
+            </p>
 
         </div>
 
 
+        <!-- Chicken Biryani -->
+
         <div class="item">
 
-            <input type="checkbox" id="kajupanner">
+            <img
+                class="food-image"
+                src="https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=500&q=85"
+                alt="Chicken Biryani"
+            >
 
-            <label>
-                Kaju Panner Biryani - ₹300
-            </label>
+            <input
+                type="checkbox"
+                id="chickenbiryani"
+            >
 
-            <select id="kajupannerquantity">
+            <div class="food-info">
 
-                <option value=""></option>
+                <span class="food-name">
+                    Chicken Biryani
+                </span>
 
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+                <span class="price">
+                    ₹250
+                </span>
 
-            </select>
+            </div>
+
+
+            <div class="quantity-box">
+
+                <span>Qty</span>
+
+                <select id="chickenquantity">
+
+                    <option value=""></option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                </select>
+
+            </div>
 
         </div>
 
 
+        <!-- Kaju Panner Biryani -->
+
         <div class="item">
 
-            <input type="checkbox" id="eggmasala">
+            <img
+                class="food-image"
+                src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=500&q=85"
+                alt="Kaju Panner Biryani"
+            >
 
-            <label>
-                Egg Masala Biryani - ₹200
-            </label>
+            <input
+                type="checkbox"
+                id="kajupanner"
+            >
 
-            <select id="eggquantity">
+            <div class="food-info">
 
-                <option value=""></option>
+                <span class="food-name">
+                    Kaju Panner Biryani
+                </span>
 
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+                <span class="price">
+                    ₹300
+                </span>
 
-            </select>
+            </div>
+
+
+            <div class="quantity-box">
+
+                <span>Qty</span>
+
+                <select id="kajupannerquantity">
+
+                    <option value=""></option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                </select>
+
+            </div>
 
         </div>
 
+
+        <!-- Egg Masala Biryani -->
+
+        <div class="item">
+
+            <img
+                class="food-image"
+                src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=500&q=85"
+                alt="Egg Masala Biryani"
+            >
+
+            <input
+                type="checkbox"
+                id="eggmasala"
+            >
+
+            <div class="food-info">
+
+                <span class="food-name">
+                    Egg Masala Biryani
+                </span>
+
+                <span class="price">
+                    ₹200
+                </span>
+
+            </div>
+
+
+            <div class="quantity-box">
+
+                <span>Qty</span>
+
+                <select id="eggquantity">
+
+                    <option value=""></option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- Calculate -->
 
         <div class="buttons">
 
             <button onclick="calculateMainCourse()">
-                Calculate
+                Calculate Total
             </button>
 
         </div>
@@ -262,22 +617,21 @@
         <label id="maincourseresult"></label>
 
 
+        <!-- Next -->
+
         <div class="buttons">
 
-            <button onclick="window.location.href='starters.html'">
-                Next →
+            <button
+                class="next-button"
+                onclick="window.location.href='starters.html'"
+            >
+                Next — Starters
             </button>
 
         </div>
 
     </div>
 
-
-    <script src="maincourse.js"></script>
-
-</body>
-</html>
-    </button>
 
     <script src="maincourse.js"></script>
 

@@ -1,180 +1,1235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Customer Name
-<input type="text" id="customername" placeholder="Please enter your name">
-<br><br>
 
-<input type="radio" name="customertype" value="normalcustomer">
-Normal Customer
-
-<input type="radio" name="customertype" value="premiumcustomer">
-Premium Customer
-
-<br><br><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>FoodTrain Restaurant</title>
+    <title>FoodTrain | Welcome</title>
 
     <style>
 
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+
+
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
+
         body {
-            margin: 0;
+
             min-height: 100vh;
-            font-family: Arial, sans-serif;
 
-            background-image:
-                linear-gradient(
-                    rgba(0, 0, 0, 0.55),
-                    rgba(0, 0, 0, 0.55)
+            font-family: 'Montserrat', sans-serif;
+
+            color: #fff8ed;
+
+            background:
+
+                radial-gradient(
+                    circle at 8% 20%,
+                    rgba(184, 117, 35, 0.25),
+                    transparent 25%
                 ),
-                url("restaurant.jpg");
 
-            background-size: cover;
-            background-position: center;
+                radial-gradient(
+                    circle at 90% 15%,
+                    rgba(130, 35, 75, 0.28),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 80% 90%,
+                    rgba(80, 45, 120, 0.20),
+                    transparent 28%
+                ),
+
+                linear-gradient(
+                    120deg,
+                    #10080d,
+                    #241018,
+                    #120b12
+                );
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
+            overflow-x: hidden;
+
         }
 
-        .container {
-            width: 420px;
-            padding: 40px;
 
-            background: rgba(255, 255, 255, 0.95);
+        /* PAGE */
 
-            border-radius: 20px;
+        .page {
 
-            text-align: center;
+            width: 94%;
 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            max-width: 1250px;
+
+            min-height: 700px;
+
+            display: flex;
+
+            align-items: center;
+
+            position: relative;
+
+            padding: 50px 0;
+
         }
+
+
+        /* LEFT CONTENT */
+
+        .content {
+
+            width: 56%;
+
+            position: relative;
+
+            z-index: 10;
+
+            animation: slideLeft 1s ease;
+
+        }
+
+
+        .small-title {
+
+            color: #e6bd6b;
+
+            font-size: 12px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+
+        }
+
 
         h1 {
-            margin-bottom: 10px;
-            font-size: 35px;
+
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 78px;
+
+            line-height: 0.95;
+
+            font-weight: 600;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 20px;
+
         }
 
-        .subtitle {
-            margin-bottom: 30px;
-            color: #666;
+
+        h1 span {
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #c98732,
+                    #f5d98b,
+                    #dba24b,
+                    #c75d7d
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
         }
 
-        label {
-            font-weight: bold;
+
+        .line {
+
+            width: 90px;
+
+            height: 3px;
+
+            border-radius: 10px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #d3943d,
+                    #f1ce7b,
+                    #bd5675
+                );
+
+            margin-bottom: 25px;
+
         }
 
-        #customername {
+
+        .description {
+
+            max-width: 550px;
+
+            color: #cbbbc1;
+
+            font-size: 15px;
+
+            line-height: 1.9;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        /* CUSTOMER BOX */
+
+        .customer-box {
+
+            width: 490px;
+
+            padding: 28px;
+
+            border-radius: 18px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.11),
+                    rgba(255,255,255,0.035)
+                );
+
+            border: 1px solid rgba(229,185,91,0.35);
+
+            backdrop-filter: blur(18px);
+
+            box-shadow:
+
+                0 25px 70px rgba(0,0,0,0.50),
+
+                0 0 50px rgba(191,71,112,0.08);
+
+            transition: 0.4s;
+
+        }
+
+
+        .customer-box:hover {
+
+            transform: translateY(-5px);
+
+            border-color: rgba(235,190,92,0.65);
+
+            box-shadow:
+
+                0 30px 80px rgba(0,0,0,0.60),
+
+                0 0 50px rgba(221,166,69,0.12);
+
+        }
+
+
+        .customer-title {
+
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 27px;
+
+            font-weight: 600;
+
+            color: #f4dfb0;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .customer-label {
+
+            color: #bdaab2;
+
+            font-size: 11px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        /* INPUT */
+
+        input[type="text"] {
+
             width: 100%;
-            padding: 13px;
 
-            margin-top: 10px;
+            padding: 14px 16px;
 
-            border: 1px solid #ccc;
+            margin-bottom: 22px;
+
             border-radius: 8px;
 
-            font-size: 16px;
+            border: 1px solid #514149;
+
+            background: rgba(5,3,6,0.65);
+
+            color: white;
+
+            font-family: 'Montserrat', sans-serif;
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition: 0.3s;
+
         }
 
-        .customer-type {
-            margin-top: 25px;
+
+        input[type="text"]:focus {
+
+            border-color: #dfb45e;
+
+            box-shadow:
+
+                0 0 0 3px rgba(223,180,94,0.09);
+
         }
 
-        .customer-type label {
-            margin-right: 20px;
-            font-weight: normal;
+
+        input[type="text"]::placeholder {
+
+            color: #776970;
+
         }
 
-        button {
-            width: 100%;
-            margin-top: 30px;
 
-            padding: 13px;
+        /* OPTIONS */
 
-            border: none;
-            border-radius: 8px;
+        .options {
 
-            font-size: 18px;
-            font-weight: bold;
+            display: flex;
+
+            gap: 12px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .option {
+
+            flex: 1;
+
+            padding: 15px;
+
+            border: 1px solid #4e3c44;
+
+            border-radius: 10px;
+
+            background: rgba(255,255,255,0.025);
+
+            color: #d9cdd0;
+
+            font-size: 12px;
 
             cursor: pointer;
 
             transition: 0.3s;
+
         }
 
+
+        .option:hover {
+
+            transform: translateY(-3px);
+
+            border-color: #d5a34e;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(213,163,78,0.13),
+                    rgba(184,71,110,0.10)
+                );
+
+        }
+
+
+        .option input {
+
+            accent-color: #dba84f;
+
+            margin-right: 7px;
+
+        }
+
+
+        /* BUTTON */
+
+        button {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background:
+
+                linear-gradient(
+                    100deg,
+                    #a96725,
+                    #e4b75d,
+                    #b94f72
+                );
+
+            color: #1c0c12;
+
+            font-family: 'Montserrat', sans-serif;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition: 0.35s;
+
+            box-shadow:
+
+                0 10px 30px rgba(215,153,55,0.18);
+
+        }
+
+
         button:hover {
-            transform: scale(1.05);
+
+            transform: translateY(-3px);
+
+            filter: brightness(1.12);
+
+            box-shadow:
+
+                0 15px 35px rgba(220,165,69,0.30);
+
+        }
+
+
+        button:active {
+
+            transform: translateY(0);
+
+        }
+
+
+        /* =========================================
+           FOOD IMAGE COLLAGE
+        ========================================= */
+
+        .visual {
+
+            position: absolute;
+
+            right: 0;
+
+            width: 500px;
+
+            height: 560px;
+
+            z-index: 2;
+
+            animation: fadeIn 1.2s ease;
+
+        }
+
+
+        /* BIG MAIN IMAGE */
+
+        .main-food {
+
+            position: absolute;
+
+            width: 340px;
+
+            height: 340px;
+
+            right: 55px;
+
+            top: 80px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 5px solid rgba(235,194,105,0.60);
+
+            box-shadow:
+
+                0 30px 80px rgba(0,0,0,0.70),
+
+                0 0 70px rgba(217,160,58,0.15);
+
+            z-index: 3;
+
+            transition: 0.5s;
+
+        }
+
+
+        .main-food:hover {
+
+            transform: scale(1.04);
+
+            border-color: #f1cd7b;
+
+            box-shadow:
+
+                0 35px 90px rgba(0,0,0,0.75),
+
+                0 0 80px rgba(222,174,74,0.25);
+
+        }
+
+
+        /* STARTER IMAGE */
+
+        .food-card.one {
+
+            position: absolute;
+
+            width: 155px;
+
+            height: 155px;
+
+            left: 5px;
+
+            top: 55px;
+
+            z-index: 4;
+
+            padding: 6px;
+
+            border-radius: 20px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(230,190,95,0.85),
+                    rgba(151,59,89,0.65)
+                );
+
+            box-shadow:
+
+                0 20px 50px rgba(0,0,0,0.55);
+
+            transform: rotate(-8deg);
+
+            transition: 0.4s;
+
+        }
+
+
+        /* DESSERT IMAGE */
+
+        .food-card.two {
+
+            position: absolute;
+
+            width: 155px;
+
+            height: 155px;
+
+            right: 0;
+
+            bottom: 75px;
+
+            z-index: 4;
+
+            padding: 6px;
+
+            border-radius: 20px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(190,70,112,0.80),
+                    rgba(229,181,83,0.75)
+                );
+
+            box-shadow:
+
+                0 20px 50px rgba(0,0,0,0.55);
+
+            transform: rotate(8deg);
+
+            transition: 0.4s;
+
+        }
+
+
+        .food-card.one:hover {
+
+            transform: rotate(0deg) scale(1.08);
+
+            z-index: 8;
+
+        }
+
+
+        .food-card.two:hover {
+
+            transform: rotate(0deg) scale(1.08);
+
+            z-index: 8;
+
+        }
+
+
+        .food-card img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+        }
+
+
+        /* DRINK IMAGE */
+
+        .drink-card {
+
+            position: absolute;
+
+            width: 120px;
+
+            height: 150px;
+
+            left: 35px;
+
+            bottom: 65px;
+
+            z-index: 5;
+
+            padding: 5px;
+
+            border-radius: 18px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(231,190,95,0.85),
+                    rgba(87,42,100,0.85)
+                );
+
+            box-shadow:
+
+                0 20px 50px rgba(0,0,0,0.60);
+
+            transform: rotate(-5deg);
+
+            transition: 0.4s;
+
+        }
+
+
+        .drink-card:hover {
+
+            transform: rotate(0deg) scale(1.08);
+
+            z-index: 9;
+
+        }
+
+
+        .drink-card img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 14px;
+
+        }
+
+
+        /* FOOD LABELS */
+
+        .food-label {
+
+            position: absolute;
+
+            bottom: 12px;
+
+            left: 12px;
+
+            right: 12px;
+
+            padding: 7px;
+
+            border-radius: 7px;
+
+            background: rgba(0,0,0,0.60);
+
+            backdrop-filter: blur(8px);
+
+            color: #f6dfaa;
+
+            font-size: 9px;
+
+            text-align: center;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* MAIN IMAGE TEXT */
+
+        .main-label {
+
+            position: absolute;
+
+            z-index: 6;
+
+            right: 100px;
+
+            top: 335px;
+
+            text-align: center;
+
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 28px;
+
+            font-weight: 600;
+
+            color: white;
+
+            text-shadow:
+
+                0 3px 20px rgba(0,0,0,0.90);
+
+            pointer-events: none;
+
+        }
+
+
+        .main-label small {
+
+            display: block;
+
+            margin-top: 5px;
+
+            font-family: 'Montserrat', sans-serif;
+
+            font-size: 8px;
+
+            letter-spacing: 4px;
+
+            color: #f0cf83;
+
+        }
+
+
+        /* DECORATIVE RINGS */
+
+        .ring {
+
+            position: absolute;
+
+            width: 470px;
+
+            height: 470px;
+
+            right: 15px;
+
+            top: 15px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(224,177,76,0.30);
+
+            box-shadow:
+
+                0 0 60px rgba(218,159,54,0.08);
+
+            z-index: 1;
+
+        }
+
+
+        .ring-two {
+
+            position: absolute;
+
+            width: 410px;
+
+            height: 410px;
+
+            right: 45px;
+
+            top: 45px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(196,80,116,0.18);
+
+            z-index: 1;
+
+        }
+
+
+        /* SMALL DECORATIVE DOTS */
+
+        .dot {
+
+            position: absolute;
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #e1b45d;
+
+            box-shadow: 0 0 15px #e1b45d;
+
+        }
+
+
+        .dot.one {
+
+            right: 500px;
+
+            top: 100px;
+
+        }
+
+
+        .dot.two {
+
+            right: 20px;
+
+            bottom: 100px;
+
+            background: #c55d7e;
+
+            box-shadow: 0 0 15px #c55d7e;
+
+        }
+
+
+        .dot.three {
+
+            right: 430px;
+
+            bottom: 35px;
+
+            width: 4px;
+
+            height: 4px;
+
+        }
+
+
+        /* ANIMATIONS */
+
+        @keyframes float {
+
+            0%, 100% {
+
+                transform: translateY(0);
+
+            }
+
+            50% {
+
+                transform: translateY(-10px);
+
+            }
+
+        }
+
+
+        @keyframes slideLeft {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateX(-40px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateX(0);
+
+            }
+
+        }
+
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform: scale(0.92);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: scale(1);
+
+            }
+
+        }
+
+
+        .main-food {
+
+            animation: float 5s ease-in-out infinite;
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 950px) {
+
+            body {
+
+                overflow-y: auto;
+
+            }
+
+
+            .page {
+
+                padding: 60px 0;
+
+            }
+
+
+            .content {
+
+                width: 100%;
+
+            }
+
+
+            .visual {
+
+                display: none;
+
+            }
+
+
+            h1 {
+
+                font-size: 60px;
+
+            }
+
+
+            .customer-box {
+
+                width: 100%;
+
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            h1 {
+
+                font-size: 48px;
+
+            }
+
+
+            .options {
+
+                flex-direction: column;
+
+            }
+
+
+            .customer-box {
+
+                padding: 22px;
+
+            }
+
         }
 
     </style>
+
 </head>
+
 
 <body>
 
-    <div class="container">
 
-        <h1>🍽️ FoodTrain</h1>
+    <div class="page">
 
-        <p class="subtitle">
-            Welcome! Please enter your details
-        </p>
 
-        <label for="customername">
-            Customer Name
-        </label>
+        <!-- =====================================
+             LEFT SIDE
+        ====================================== -->
 
-        <input
-            type="text"
-            id="customername"
-            placeholder="Please enter your name"
-        >
+        <div class="content">
 
-        <div class="customer-type">
 
-            <p><b>Select Customer Type</b></p>
+            <div class="small-title">
 
-            <input
-                type="radio"
-                name="customertype"
-                value="normalcustomer"
-            >
-            <label>Normal Customer</label>
+                Fine Dining Experience
 
-            <input
-                type="radio"
-                name="customertype"
-                value="premiumcustomer"
-            >
-            <label>Premium Customer</label>
+            </div>
+
+
+            <h1>
+
+                Welcome to<br>
+
+                <span>FoodTrain</span>
+
+            </h1>
+
+
+            <div class="line"></div>
+
+
+            <p class="description">
+
+                Discover carefully selected dishes, refreshing beverages
+
+                and delightful desserts. Choose your dining preference
+
+                and begin your unforgettable dining experience.
+
+            </p>
+
+
+            <!-- CUSTOMER DETAILS -->
+
+            <div class="customer-box">
+
+
+                <div class="customer-title">
+
+                    Guest Details
+
+                </div>
+
+
+                <div class="customer-label">
+
+                    Customer Name
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="customername"
+                    placeholder="Enter your name"
+                >
+
+
+                <div class="customer-label">
+
+                    Customer Type
+
+                </div>
+
+
+                <div class="options">
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="customertype"
+                            value="normalcustomer"
+                        >
+
+                        Normal Customer
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="customertype"
+                            value="premiumcustomer"
+                        >
+
+                        Premium Customer
+
+                    </label>
+
+
+                </div>
+
+
+                <button onclick="typesofcustomers()">
+
+                    CONTINUE TO MENU
+
+                </button>
+
+
+            </div>
+
 
         </div>
 
-        <button onclick="typesofcustomers()">
-            Continue to Menu →
-        </button>
+
+        <!-- =====================================
+             RIGHT SIDE FOOD COLLAGE
+        ====================================== -->
+
+        <div class="visual">
+
+
+            <!-- DECORATIVE RINGS -->
+
+            <div class="ring"></div>
+
+            <div class="ring-two"></div>
+
+
+            <!-- MAIN FOOD -->
+
+            <img
+                class="main-food"
+                src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85"
+                alt="Delicious Indian food"
+            >
+
+
+            <div class="main-label">
+
+                Taste Meets Elegance
+
+                <small>FOODTRAIN</small>
+
+            </div>
+
+
+            <!-- STARTER -->
+
+            <div class="food-card one">
+
+                <img
+                    src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=500&q=85"
+                    alt="Indian starter"
+                >
+
+                <div class="food-label">
+
+                    Starters
+
+                </div>
+
+            </div>
+
+
+            <!-- DESSERT -->
+
+            <div class="food-card two">
+
+                <img
+                    src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=500&q=85"
+                    alt="Delicious dessert"
+                >
+
+                <div class="food-label">
+
+                    Desserts
+
+                </div>
+
+            </div>
+
+
+            <!-- BEVERAGE -->
+
+            <div class="drink-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=500&q=85"
+                    alt="Refreshing beverage"
+                >
+
+                <div class="food-label">
+
+                    Beverages
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- DECORATIVE DOTS -->
+
+        <div class="dot one"></div>
+
+        <div class="dot two"></div>
+
+        <div class="dot three"></div>
+
 
     </div>
 
+
+    <!-- YOUR EXISTING JAVASCRIPT -->
+
     <script src="restaurant.js"></script>
 
-</body>
-</html>
 
-<button onclick="typesofcustomers()">Submit</button>
-
-<script src="restaurant.js"></script>
 </body>
+
 </html>

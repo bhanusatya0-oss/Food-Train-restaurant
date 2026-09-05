@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Final Bill</title>
+    <title>Final Bill | FoodTrain</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
 
@@ -16,136 +21,394 @@
             margin: 0;
             min-height: 100vh;
 
-            font-family: Arial, sans-serif;
+            font-family: "Montserrat", sans-serif;
 
-            background-image:
-                linear-gradient(
-                    rgba(0, 0, 0, 0.55),
-                    rgba(0, 0, 0, 0.55)
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(216, 174, 92, 0.22),
+                    transparent 30%
                 ),
-                url("billing.jpg");
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(91, 45, 104, 0.32),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #210d18,
+                    #3b1327,
+                    #180b20
+                );
 
-            background-size: cover;
-            background-position: center;
+            color: #fff;
 
             display: flex;
             justify-content: center;
             align-items: center;
 
-            padding: 30px;
+            padding: 40px 20px;
+
+            overflow-x: hidden;
         }
+
+
+        /* Decorative circles */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            width: 320px;
+            height: 320px;
+
+            border: 1px solid rgba(216, 174, 92, 0.25);
+
+            border-radius: 50%;
+
+            top: -130px;
+            left: -100px;
+
+            animation: rotate 18s linear infinite;
+        }
+
+
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            width: 260px;
+            height: 260px;
+
+            border: 1px solid rgba(216, 174, 92, 0.20);
+
+            border-radius: 50%;
+
+            bottom: -100px;
+            right: -80px;
+
+            animation: rotate 15s linear infinite reverse;
+        }
+
+
+        @keyframes rotate {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        /* Bill container */
 
         .bill-container {
-            width: 600px;
+            width: 650px;
+            max-width: 100%;
 
-            padding: 40px;
+            padding: 45px;
 
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 255, 255, 0.09);
 
-            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            border-radius: 28px;
+
+            backdrop-filter: blur(18px);
 
             box-shadow:
-                0 15px 35px rgba(0, 0, 0, 0.4);
+                0 25px 70px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+            position: relative;
+
+            z-index: 2;
+
+            animation: appear 0.8s ease;
         }
 
-        h1 {
-            text-align: center;
 
-            margin-top: 0;
-            margin-bottom: 10px;
+        @keyframes appear {
 
-            font-size: 34px;
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
         }
 
-        .restaurant-subtitle {
-            text-align: center;
 
-            color: #777;
+        /* Header */
+
+        .bill-header {
+            text-align: center;
 
             margin-bottom: 30px;
         }
 
+
+        .bill-header small {
+            color: #d8ae5c;
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            font-weight: 600;
+        }
+
+
+        h1 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 48px;
+
+            margin: 8px 0;
+
+            color: #fff4d8;
+
+            font-weight: 700;
+        }
+
+
+        .restaurant-subtitle {
+            margin: 0;
+
+            color: rgba(255, 255, 255, 0.65);
+
+            font-size: 13px;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* Order heading */
+
         h3 {
             text-align: center;
 
-            margin-bottom: 25px;
+            margin: 25px 0;
 
-            font-size: 22px;
-        }
-
-        .order-section {
-            background: #f7f7f7;
-
-            padding: 20px;
-
-            border-radius: 12px;
-
-            margin-bottom: 20px;
-        }
-
-        .order-section p {
-            font-size: 17px;
-
-            margin: 12px 0;
-
-            padding-bottom: 8px;
-
-            border-bottom: 1px solid #ddd;
-        }
-
-        .calculation-section {
-            margin-top: 20px;
-        }
-
-        .calculation-section p {
-            font-size: 17px;
-
-            margin: 12px 0;
-        }
-
-        #discount {
-            font-weight: bold;
-        }
-
-        #finalbill {
-            text-align: center;
-
-            margin-top: 25px;
-
-            padding: 20px;
-
-            border-radius: 12px;
+            font-family: "Cormorant Garamond", serif;
 
             font-size: 28px;
 
-            font-weight: bold;
-
-            background: #f1f1f1;
+            color: #f4d78b;
         }
+
+
+        /* Order section */
+
+        .order-section {
+            background: rgba(255, 255, 255, 0.07);
+
+            padding: 20px 22px;
+
+            border-radius: 18px;
+
+            border: 1px solid rgba(255, 255, 255, 0.10);
+
+            margin-bottom: 25px;
+        }
+
+
+        .order-section p {
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 15px;
+
+            margin: 0;
+
+            padding: 14px 0;
+
+            color: rgba(255, 255, 255, 0.85);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+
+        .order-section p:last-child {
+            border-bottom: none;
+        }
+
+
+        /* Calculations */
+
+        .calculation-section {
+            margin-top: 20px;
+
+            padding: 5px 5px;
+        }
+
+
+        .calculation-section p {
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 15px;
+
+            margin: 15px 0;
+
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+
+        #discount {
+            color: #d8ae5c;
+
+            font-weight: 600;
+        }
+
+
+        #gst {
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+
+        /* Lines */
 
         hr {
             border: none;
 
-            border-top: 1px solid #ccc;
+            border-top: 1px solid rgba(216, 174, 92, 0.25);
 
             margin: 25px 0;
+        }
+
+
+        /* Final amount */
+
+        .final-box {
+            margin-top: 25px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(216, 174, 92, 0.18),
+                    rgba(91, 45, 104, 0.18)
+                );
+
+            border: 1px solid rgba(216, 174, 92, 0.35);
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.18);
+        }
+
+
+        .final-label {
+            display: block;
+
+            color: rgba(255, 255, 255, 0.60);
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+
+        #finalbill {
+            margin: 0;
+
+            color: #f5d987;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 38px;
+
+            font-weight: 700;
+        }
+
+
+        /* Thank you */
+
+        .thank-you {
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: rgba(255, 255, 255, 0.55);
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .bill-container {
+                padding: 28px 20px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            h3 {
+                font-size: 25px;
+            }
+
+            .order-section p,
+            .calculation-section p {
+                font-size: 13px;
+            }
+
+            #finalbill {
+                font-size: 32px;
+            }
+
         }
 
     </style>
 </head>
 
+
 <body>
 
     <div class="bill-container">
 
-        <h1>🍽️ FoodTrain Restaurant</h1>
+        <div class="bill-header">
 
-        <p class="restaurant-subtitle">
-            Thank you for dining with us!
-        </p>
+            <small>FoodTrain • Order Completed</small>
+
+            <h1>FoodTrain Restaurant</h1>
+
+            <p class="restaurant-subtitle">
+                Thank you for dining with us!
+            </p>
+
+        </div>
 
 
-        <h3>🧾 Order Summary</h3>
+        <h3>Order Summary</h3>
 
 
         <div class="order-section">
@@ -180,7 +443,20 @@
         <hr>
 
 
-        <h2 id="finalbill"></h2>
+        <div class="final-box">
+
+            <span class="final-label">
+                Amount Payable
+            </span>
+
+            <h2 id="finalbill"></h2>
+
+        </div>
+
+
+        <p class="thank-you">
+            We hope you enjoyed your FoodTrain experience.
+        </p>
 
     </div>
 

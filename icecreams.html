@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ice Creams</title>
+    <title>Ice Creams | FoodTrain</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
 
@@ -15,179 +20,623 @@
         body {
             margin: 0;
             min-height: 100vh;
-            font-family: Arial, sans-serif;
 
-            background-image:
-                linear-gradient(
-                    rgba(0, 0, 0, 0.5),
-                    rgba(0, 0, 0, 0.5)
+            font-family: "Montserrat", sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(216, 174, 92, 0.22),
+                    transparent 30%
                 ),
-                url("icecream.jpg");
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(91, 45, 104, 0.32),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #210d18,
+                    #3b1327,
+                    #180b20
+                );
 
-            background-size: cover;
-            background-position: center;
+            color: #fff;
 
             display: flex;
             justify-content: center;
             align-items: center;
+
+            padding: 40px 20px;
+
+            overflow-x: hidden;
         }
+
+
+        /* Decorative circles */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            width: 300px;
+            height: 300px;
+
+            border: 1px solid rgba(216, 174, 92, 0.25);
+
+            border-radius: 50%;
+
+            top: -120px;
+            left: -100px;
+
+            animation: rotate 15s linear infinite;
+        }
+
+
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            width: 250px;
+            height: 250px;
+
+            border: 1px solid rgba(216, 174, 92, 0.20);
+
+            border-radius: 50%;
+
+            bottom: -100px;
+            right: -80px;
+
+            animation: rotate 18s linear infinite reverse;
+        }
+
+
+        @keyframes rotate {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        /* Main container */
 
         .container {
-            width: 600px;
-            padding: 40px;
+            width: 720px;
+            max-width: 100%;
 
-            background: rgba(255, 255, 255, 0.95);
+            padding: 45px;
 
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.09);
 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            border-radius: 28px;
+
+            backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+            position: relative;
+
+            z-index: 2;
+
+            animation: appear 0.8s ease;
         }
 
-        h2 {
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* Heading */
+
+        .heading {
             text-align: center;
+
             margin-bottom: 35px;
         }
 
+
+        .heading small {
+            color: #d8ae5c;
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            font-weight: 600;
+        }
+
+
+        h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 48px;
+
+            margin: 8px 0;
+
+            color: #fff4d8;
+
+            font-weight: 700;
+        }
+
+
+        .subtitle {
+            margin: 0;
+
+            color: rgba(255, 255, 255, 0.68);
+
+            font-size: 14px;
+        }
+
+
+        /* Food items */
+
         .item {
             display: flex;
+
             align-items: center;
-            gap: 10px;
 
-            margin-bottom: 25px;
-            padding: 15px;
+            gap: 15px;
 
-            border-radius: 10px;
-            background: #f5f5f5;
+            margin-bottom: 18px;
+
+            padding: 14px;
+
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.10);
+
+            transition: 0.35s ease;
         }
 
-        .item label {
-            flex: 1;
-            font-weight: bold;
+
+        .item:hover {
+            transform: translateY(-4px);
+
+            background: rgba(255, 255, 255, 0.13);
+
+            border-color: rgba(216, 174, 92, 0.55);
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.25),
+                0 0 20px rgba(216, 174, 92, 0.08);
         }
 
-        select {
-            padding: 8px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
+
+        /* Ice cream images */
+
+        .food-image {
+            width: 80px;
+            height: 80px;
+
+            border-radius: 15px;
+
+            object-fit: cover;
+
+            flex-shrink: 0;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.35);
+
+            transition: 0.4s ease;
         }
 
-        .buttons {
-            text-align: center;
-            margin-top: 25px;
+
+        .item:hover .food-image {
+            transform: scale(1.06);
         }
 
-        button {
-            padding: 12px 25px;
-            margin: 5px;
 
-            border: none;
-            border-radius: 8px;
+        /* Checkbox */
 
-            font-size: 16px;
-            font-weight: bold;
+        .item input[type="checkbox"] {
+            width: 19px;
+            height: 19px;
+
+            accent-color: #d8ae5c;
 
             cursor: pointer;
 
-            transition: 0.3s;
+            flex-shrink: 0;
         }
 
-        button:hover {
-            transform: scale(1.05);
+
+        /* Food information */
+
+        .food-info {
+            flex: 1;
         }
+
+
+        .food-name {
+            display: block;
+
+            color: #fff;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            margin-bottom: 5px;
+        }
+
+
+        .price {
+            color: #d8ae5c;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        /* Quantity */
+
+        .quantity-box {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 5px;
+        }
+
+
+        .quantity-box span {
+            color: rgba(255, 255, 255, 0.55);
+
+            font-size: 9px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        select {
+            padding: 9px 12px;
+
+            min-width: 60px;
+
+            border-radius: 10px;
+
+            border: 1px solid rgba(216, 174, 92, 0.45);
+
+            background: #291321;
+
+            color: #fff;
+
+            font-family: "Montserrat", sans-serif;
+
+            outline: none;
+
+            cursor: pointer;
+        }
+
+
+        /* Buttons */
+
+        .buttons {
+            text-align: center;
+
+            margin-top: 28px;
+        }
+
+
+        button {
+            padding: 13px 30px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            letter-spacing: 0.5px;
+
+            cursor: pointer;
+
+            color: #24101a;
+
+            background: linear-gradient(
+                135deg,
+                #e7c777,
+                #b98535
+            );
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.25);
+
+            transition: 0.3s ease;
+        }
+
+
+        button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 28px rgba(216, 174, 92, 0.28);
+        }
+
+
+        /* Result */
 
         #icecreamresult {
             display: block;
+
             text-align: center;
 
-            font-size: 20px;
-            font-weight: bold;
+            margin-top: 25px;
 
-            margin-top: 20px;
+            min-height: 25px;
+
+            color: #f4d78b;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* Final bill button */
+
+        .next-button {
+            background: transparent;
+
+            color: #f3d58b;
+
+            border: 1px solid rgba(216, 174, 92, 0.55);
+
+            box-shadow: none;
+        }
+
+
+        .next-button:hover {
+            background: rgba(216, 174, 92, 0.12);
+
+            box-shadow:
+                0 8px 20px rgba(216, 174, 92, 0.12);
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 28px 20px;
+            }
+
+            h2 {
+                font-size: 38px;
+            }
+
+            .item {
+                gap: 10px;
+            }
+
+            .food-image {
+                width: 65px;
+                height: 65px;
+            }
+
+            .food-name {
+                font-size: 14px;
+            }
+
+            select {
+                min-width: 55px;
+            }
+
         }
 
     </style>
 </head>
 
+
 <body>
 
     <div class="container">
 
-        <h2>🍨 Explore Your Favourite Ice Creams</h2>
+        <div class="heading">
 
+            <small>FoodTrain • Sweet Collection</small>
 
-        <div class="item">
+            <h2>Explore Your Favourite</h2>
 
-            <input type="checkbox" id="chocolate">
-
-            <label>
-                Chocolate - ₹100
-            </label>
-
-            <select id="chocolatequantity">
-
-                <option value=""></option>
-
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-
-            </select>
+            <p class="subtitle">
+                Ice Creams
+            </p>
 
         </div>
 
 
+        <!-- Chocolate -->
+
         <div class="item">
 
-            <input type="checkbox" id="blueberry">
+            <img
+                class="food-image"
+                src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=500&q=85"
+                alt="Chocolate Ice Cream"
+            >
 
-            <label>
-                Blueberry - ₹120
-            </label>
+            <input
+                type="checkbox"
+                id="chocolate"
+            >
 
-            <select id="blueberryquantity">
+            <div class="food-info">
 
-                <option value=""></option>
+                <span class="food-name">
+                    Chocolate
+                </span>
 
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+                <span class="price">
+                    ₹100
+                </span>
 
-            </select>
+            </div>
+
+
+            <div class="quantity-box">
+
+                <span>Qty</span>
+
+                <select id="chocolatequantity">
+
+                    <option value=""></option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                </select>
+
+            </div>
 
         </div>
 
 
+        <!-- Blueberry -->
+
         <div class="item">
 
-            <input type="checkbox" id="butterscotch">
+            <img
+                class="food-image"
+                src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=500&q=85"
+                alt="Blueberry Ice Cream"
+            >
 
-            <label>
-                Butterscotch - ₹150
-            </label>
+            <input
+                type="checkbox"
+                id="blueberry"
+            >
 
-            <select id="butterscotchquantity">
+            <div class="food-info">
 
-                <option value=""></option>
+                <span class="food-name">
+                    Blueberry
+                </span>
 
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+                <span class="price">
+                    ₹120
+                </span>
 
-            </select>
+            </div>
+
+
+            <div class="quantity-box">
+
+                <span>Qty</span>
+
+                <select id="blueberryquantity">
+
+                    <option value=""></option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                </select>
+
+            </div>
 
         </div>
 
+
+        <!-- Butterscotch -->
+
+        <div class="item">
+
+            <img
+                class="food-image"
+                src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?auto=format&fit=crop&w=500&q=85"
+                alt="Butterscotch Ice Cream"
+            >
+
+            <input
+                type="checkbox"
+                id="butterscotch"
+            >
+
+            <div class="food-info">
+
+                <span class="food-name">
+                    Butterscotch
+                </span>
+
+                <span class="price">
+                    ₹150
+                </span>
+
+            </div>
+
+
+            <div class="quantity-box">
+
+                <span>Qty</span>
+
+                <select id="butterscotchquantity">
+
+                    <option value=""></option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- Calculate -->
 
         <div class="buttons">
 
             <button onclick="calculateIcecream()">
-                Calculate
+                Calculate Total
             </button>
 
         </div>
@@ -196,9 +645,14 @@
         <label id="icecreamresult"></label>
 
 
+        <!-- Final Bill -->
+
         <div class="buttons">
 
-            <button onclick="window.location.href='billing.html'">
+            <button
+                class="next-button"
+                onclick="window.location.href='billing.html'"
+            >
                 Final Bill →
             </button>
 

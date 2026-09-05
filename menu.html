@@ -1,130 +1,690 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>FoodTrain Menu</title>
+    <title>FoodTrain | Menu</title>
+
 
     <style>
 
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+
+
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
+
         body {
-            margin: 0;
+
             min-height: 100vh;
 
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
 
-            background-image:
-                linear-gradient(
-                    rgba(0, 0, 0, 0.55),
-                    rgba(0, 0, 0, 0.55)
+            color: #fff8ed;
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 15%,
+                    rgba(218, 164, 67, 0.20),
+                    transparent 25%
                 ),
-                url("menu.jpg");
 
-            background-size: cover;
-            background-position: center;
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(190, 60, 105, 0.22),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(91, 50, 125, 0.18),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #10080d,
+                    #251019,
+                    #120b13
+                );
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
+            padding: 50px 20px;
+
+            overflow-x: hidden;
+
         }
 
+
+        /* MAIN CONTAINER */
+
         .container {
-            width: 600px;
-            padding: 45px;
 
-            background: rgba(255, 255, 255, 0.95);
+            width: 95%;
 
-            border-radius: 25px;
+            max-width: 1100px;
+
+            padding: 55px;
 
             text-align: center;
 
+            border-radius: 28px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.10),
+                    rgba(255,255,255,0.035)
+                );
+
+            border: 1px solid rgba(230,185,91,0.32);
+
+            backdrop-filter: blur(18px);
+
             box-shadow:
-                0 15px 35px rgba(0, 0, 0, 0.4);
+
+                0 30px 90px rgba(0,0,0,0.60),
+
+                0 0 60px rgba(196,72,112,0.08);
+
+            animation: appear 0.9s ease;
+
         }
+
+
+        /* HEADING */
+
+        .small-title {
+
+            color: #e4bb68;
+
+            font-size: 11px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+
+        }
+
 
         h1 {
-            margin-bottom: 10px;
-            font-size: 36px;
+
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 58px;
+
+            font-weight: 600;
+
+            margin-bottom: 8px;
+
         }
+
+
+        h1 span {
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #c98a35,
+                    #f4d78d,
+                    #dba44e,
+                    #c75d7e
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+        }
+
 
         .subtitle {
-            color: #666;
-            margin-bottom: 35px;
-            font-size: 18px;
+
+            color: #cbbcc1;
+
+            font-size: 14px;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 40px;
+
         }
+
+
+        .gold-line {
+
+            width: 80px;
+
+            height: 3px;
+
+            margin: 0 auto 35px;
+
+            border-radius: 10px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #c88432,
+                    #f2ce7c,
+                    #c55b7c
+                );
+
+        }
+
+
+        /* MENU GRID */
 
         .menu-buttons {
+
             display: grid;
+
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+
+            gap: 24px;
+
         }
 
-        button {
-            padding: 20px 10px;
 
-            border: none;
-            border-radius: 15px;
+        /* CATEGORY CARD */
 
-            font-size: 18px;
-            font-weight: bold;
+        .menu-card {
+
+            position: relative;
+
+            height: 260px;
+
+            border-radius: 20px;
+
+            overflow: hidden;
 
             cursor: pointer;
 
-            transition: 0.3s;
-        }
+            border: 1px solid rgba(232,190,97,0.28);
 
-        button:hover {
-            transform: translateY(-5px) scale(1.03);
+            background: #1c1117;
 
             box-shadow:
-                0 8px 18px rgba(0, 0, 0, 0.25);
+
+                0 15px 35px rgba(0,0,0,0.35);
+
+            transition:
+
+                transform 0.4s,
+
+                box-shadow 0.4s,
+
+                border-color 0.4s;
+
         }
 
-        #buttonone {
+
+        .menu-card:hover {
+
+            transform: translateY(-8px);
+
+            border-color: rgba(239,196,99,0.70);
+
+            box-shadow:
+
+                0 25px 55px rgba(0,0,0,0.60),
+
+                0 0 30px rgba(224,167,67,0.12);
+
+        }
+
+
+        /* FOOD IMAGE */
+
+        .menu-card img {
+
             width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.6s;
+
+        }
+
+
+        .menu-card:hover img {
+
+            transform: scale(1.08);
+
+        }
+
+
+        /* IMAGE OVERLAY */
+
+        .menu-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+
+                linear-gradient(
+                    to top,
+                    rgba(10,5,8,0.92),
+                    rgba(15,8,12,0.25),
+                    rgba(10,5,8,0.08)
+                );
+
+        }
+
+
+        /* CATEGORY CONTENT */
+
+        .card-content {
+
+            position: absolute;
+
+            z-index: 2;
+
+            bottom: 25px;
+
+            left: 25px;
+
+            right: 25px;
+
+            text-align: left;
+
+        }
+
+
+        .card-content h2 {
+
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 34px;
+
+            color: #fff3d2;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .card-content p {
+
+            color: #d2c2c7;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .explore {
+
+            display: inline-block;
+
+            margin-top: 12px;
+
+            color: #e6c373;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* DIFFERENT CARD ACCENTS */
+
+        .main-course {
+
+            border-color: rgba(221,169,72,0.35);
+
+        }
+
+
+        .starters {
+
+            border-color: rgba(197,82,111,0.35);
+
+        }
+
+
+        .beverages {
+
+            border-color: rgba(111,80,160,0.35);
+
+        }
+
+
+        .icecreams {
+
+            border-color: rgba(232,180,112,0.35);
+
+        }
+
+
+        /* FOOTER */
+
+        .footer {
+
+            margin-top: 35px;
+
+            color: #806f77;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* ANIMATION */
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(25px) scale(0.98);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0) scale(1);
+
+            }
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .container {
+
+                padding: 35px 20px;
+
+            }
+
+
+            h1 {
+
+                font-size: 45px;
+
+            }
+
+
+            .menu-buttons {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .menu-card {
+
+                height: 230px;
+
+            }
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            h1 {
+
+                font-size: 38px;
+
+            }
+
+
+            .subtitle {
+
+                font-size: 12px;
+
+            }
+
         }
 
     </style>
+
 </head>
+
 
 <body>
 
+
     <div class="container">
 
-        <h1>🍽️ FoodTrain Menu</h1>
 
-        <p class="subtitle">
-            Choose your favourite category
-        </p>
+        <div class="small-title">
 
-        <div class="menu-buttons">
-
-            <button id="buttonone" onclick="maincourse()">
-                🍛 Main Course
-            </button>
-
-            <button id="buttonone" onclick="starters()">
-                🍗 Starters
-            </button>
-
-            <button id="buttonone" onclick="beverages()">
-                🥤 Beverages
-            </button>
-
-            <button id="buttonone" onclick="icecreams()">
-                🍨 Ice Creams
-            </button>
+            Curated For You
 
         </div>
 
+
+        <h1>
+
+            <span>FoodTrain</span> Menu
+
+        </h1>
+
+
+        <div class="gold-line"></div>
+
+
+        <p class="subtitle">
+
+            Explore our carefully selected collection of flavours
+
+        </p>
+
+
+        <!-- MENU -->
+
+        <div class="menu-buttons">
+
+
+            <!-- MAIN COURSE -->
+
+            <div
+                class="menu-card main-course"
+                onclick="maincourse()"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85"
+                    alt="Main Course"
+                >
+
+
+                <div class="card-content">
+
+                    <h2>
+
+                        Main Course
+
+                    </h2>
+
+                    <p>
+
+                        Signature dishes & hearty meals
+
+                    </p>
+
+                    <span class="explore">
+
+                        Explore Collection →
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- STARTERS -->
+
+            <div
+                class="menu-card starters"
+                onclick="starters()"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=900&q=85"
+                    alt="Starters"
+                >
+
+
+                <div class="card-content">
+
+                    <h2>
+
+                        Starters
+
+                    </h2>
+
+                    <p>
+
+                        Delicious bites to begin with
+
+                    </p>
+
+                    <span class="explore">
+
+                        Explore Collection →
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- BEVERAGES -->
+
+            <div
+                class="menu-card beverages"
+                onclick="beverages()"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85"
+                    alt="Beverages"
+                >
+
+
+                <div class="card-content">
+
+                    <h2>
+
+                        Beverages
+
+                    </h2>
+
+                    <p>
+
+                        Refreshing drinks & cool favourites
+
+                    </p>
+
+                    <span class="explore">
+
+                        Explore Collection →
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ICE CREAMS -->
+
+            <div
+                class="menu-card icecreams"
+                onclick="icecreams()"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=900&q=85"
+                    alt="Ice Creams"
+                >
+
+
+                <div class="card-content">
+
+                    <h2>
+
+                        Ice Creams
+
+                    </h2>
+
+                    <p>
+
+                        Sweet endings worth remembering
+
+                    </p>
+
+                    <span class="explore">
+
+                        Explore Collection →
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer">
+
+            Taste • Quality • Elegance
+
+        </div>
+
+
     </div>
+
 
     <script src="menu.js"></script>
 
+
 </body>
+
 </html>
